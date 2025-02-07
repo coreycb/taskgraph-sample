@@ -1,0 +1,24 @@
+---
+transforms:
+  - taskgraph_sample_taskgraph.transforms.hello:transforms
+  #- taskgraph_sample_taskgraph.transforms.hello2:transforms
+
+task-defaults:
+  worker-type: t-linux-large
+  worker:
+    docker-image: {in-tree: linux}
+    max-run-time: 1800
+
+tasks:
+  earth:
+    noun: earth
+    run:
+      using: run-task
+      command: >-
+          echo "Hello $NOUN!"
+  pluto:
+    noun: pluto
+    run:
+      using: run-task
+      command: >-
+          echo "Hello $NOUN!"
